@@ -1,0 +1,160 @@
+<div class="register-container">
+  <div class="form-container">
+    <h2>Registrarse</h2>
+    <nz-alert
+      *ngIf="errorMessage"
+      nzShowIcon
+      nzType="error"
+      [nzMessage]="errorMessage"
+      [ngStyle]="{ 'margin-bottom': '16px' }"
+    ></nz-alert>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input
+          nz-input
+          type="email"
+          name="email"
+          placeholder="Ingresa su dirección de email"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="🤪">
+        <div class="input-container">
+          <label for="password">Password</label>
+          <input
+            nz-input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Ingrese una contraseña segura"
+          />
+        </div>
+		
+        <div class="input-container">
+          <label for="confirmPassword">Confirmar Password</label>
+          <input
+            nz-input
+            type="password"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            placeholder="Repetir su contraseña "
+          />
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="dni">Dni</label>
+        <input
+          nz-input
+          type="text"
+          name="dni"
+          placeholder="Ingrese su DNI"
+          [(ngModel)]="dni"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="nombres">Nombres</label>
+        <input
+          nz-input
+          type="text"
+          name="nombres"
+          placeholder="Ingresa sus nombres"
+          [(ngModel)]="nombres"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="aPaterno">Apellido Paterno</label>
+        <input
+          nz-input
+          type="text"
+          name="aPaterno"
+          placeholder="Ingrese su apellido paterno"
+          [(ngModel)]="aPaterno"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="aMaterno">Apellido Materno</label>
+        <input
+          nz-input
+          type="text"
+          name="aMaterno"
+          placeholder="Ingrese su apellido materno"
+          [(ngModel)]="aMaterno"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="fechaNac">Fecha de Nacimiento</label>
+        <input
+          nz-input
+          type="date"
+          name="fechaNac"
+          placeholder="Ingrese su Fecha de nacimiento"
+          [(ngModel)]="fechaNac"
+        />
+      </div>
+      
+      <div class="input-container">
+        <label for="direccion">Dirección </label>
+        <input
+          nz-input
+          type="text"
+          name="direccion"
+          placeholder="Ingrese su dirección"
+          [(ngModel)]="direccion"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="telefono">Teléfono</label>
+        <input
+          nz-input
+          type="text"
+          name="telefono"
+          placeholder="Ingresa su número telefónico "
+          [(ngModel)]="telefono"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="user">User</label>
+        <input
+          nz-input
+          type="text"
+          name="user"
+          placeholder="Ingrese su username "
+          [(ngModel)]="user"
+        />
+      </div>
+	  
+      <div class="✅">
+        <div class="checkbox-container">
+          <input nz-input type="checkbox" />
+          <span>Acepto recibir correos electrónicos instructivos y promocionales</span>
+        </div>
+
+        <div class="checkbox-container">
+          <input nz-input type="checkbox"/>
+          <span> Acepto los Términos de uso y la Política de privacidad de Minimarket "San Benito"</span>
+        </div>
+      </div>
+      <div class="cta-container">
+        <!-- <input type="submit" value="Sign up" /> -->
+        <button
+          nz-button
+          type="submit"
+          [disabled]="!canSubmit()"
+          [nzLoading]="loading"
+        >
+          Registrarse
+        </button>
+        <div>
+          <div><a routerLink="/login">Inicia sesión con un usuario existente</a></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

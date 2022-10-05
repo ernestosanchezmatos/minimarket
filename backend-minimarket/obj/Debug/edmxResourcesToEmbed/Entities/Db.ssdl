@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="minimarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="boleta">
+    <Key>
+      <PropertyRef Name="bol_id" />
+    </Key>
+    <Property Name="bol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pedido_pe_id" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="bol_serie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bol_flagCancelado" Type="bit" Nullable="false" />
+    <Property Name="bol_igv" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="bol_importeTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="bol_OperacionGrabada" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="categoria_id" />
+    </Key>
+    <Property Name="categoria_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoria_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="categoria_description" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detalle_pedido">
+    <Key>
+      <PropertyRef Name="pedido_pe_id" />
+      <PropertyRef Name="producto_producto_id" />
+    </Key>
+    <Property Name="pedido_pe_id" Type="int" Nullable="false" />
+    <Property Name="producto_producto_id" Type="int" Nullable="false" />
+    <Property Name="dp_cantidad" Type="int" Nullable="false" />
+    <Property Name="dp_precioventa" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="dp_descuento" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="fac_id" />
+    </Key>
+    <Property Name="fac_id" Type="int" Nullable="false" />
+    <Property Name="pedido_pe_id" Type="int" Nullable="false" />
+    <Property Name="ruc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="razon_social" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nums_erie" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="datetime" Nullable="false" />
+    <Property Name="flag_cancelado" Type="bit" Nullable="false" />
+    <Property Name="igv" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="importe_total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="operacion_grabada" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marca">
+    <Key>
+      <PropertyRef Name="marca_id" />
+    </Key>
+    <Property Name="marca_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marca_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="modo_pago">
+    <Key>
+      <PropertyRef Name="modo_id" />
+    </Key>
+    <Property Name="modo_id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre_titular" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tarjeta_numero" Type="int" Nullable="false" />
+    <Property Name="cvv" Type="int" Nullable="false" />
+    <Property Name="fecha_cad" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pedido">
+    <Key>
+      <PropertyRef Name="pe_id" />
+    </Key>
+    <Property Name="pe_id" Type="int" Nullable="false" />
+    <Property Name="pe_Fecha" Type="date" Nullable="false" />
+    <Property Name="pe_hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="pe_idUsuario" Type="int" Nullable="false" />
+    <Property Name="pe_Monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="pe_idModoPago" Type="int" Nullable="false" />
+    <Property Name="pe_Anular" Type="bit" Nullable="false" />
+    <Property Name="pe_Estado" Type="bit" Nullable="false" />
+    <Property Name="modo_pago_modo_id" Type="int" Nullable="false" />
+    <Property Name="usuario_u_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="producto_id" />
+    </Key>
+    <Property Name="producto_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producto_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="producto_stock" Type="int" Nullable="false" />
+    <Property Name="producto_precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="producto_description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="producto_disponible" Type="bit" Nullable="false" />
+    <Property Name="marca_marca_id" Type="int" Nullable="false" />
+    <Property Name="categoria_categoria_id" Type="int" Nullable="false" />
+    <Property Name="imagen" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rol_description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rol_estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_dni" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="u_nombres" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_fechaNac" Type="date" Nullable="false" />
+    <Property Name="u_direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_telefono" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="u_correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_estado" Type="bit" Nullable="false" />
+    <Property Name="rol_rol_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="boleta_pedido">
+    <End Role="pedido" Type="Self.pedido" Multiplicity="1" />
+    <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido">
+        <PropertyRef Name="pe_id" />
+      </Principal>
+      <Dependent Role="boleta">
+        <PropertyRef Name="pedido_pe_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="detalle_pedido_pedido">
+    <End Role="pedido" Type="Self.pedido" Multiplicity="1" />
+    <End Role="detalle_pedido" Type="Self.detalle_pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido">
+        <PropertyRef Name="pe_id" />
+      </Principal>
+      <Dependent Role="detalle_pedido">
+        <PropertyRef Name="pedido_pe_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="detalle_pedido_producto">
+    <End Role="producto" Type="Self.producto" Multiplicity="1" />
+    <End Role="detalle_pedido" Type="Self.detalle_pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="producto_id" />
+      </Principal>
+      <Dependent Role="detalle_pedido">
+        <PropertyRef Name="producto_producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="factura_pedido">
+    <End Role="pedido" Type="Self.pedido" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido">
+        <PropertyRef Name="pe_id" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="pedido_pe_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pedido_modo_pago">
+    <End Role="modo_pago" Type="Self.modo_pago" Multiplicity="1" />
+    <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modo_pago">
+        <PropertyRef Name="modo_id" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="modo_pago_modo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pedido_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="usuario_u_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="producto_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="categoria_id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="categoria_categoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="producto_marca">
+    <End Role="marca" Type="Self.marca" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca">
+        <PropertyRef Name="marca_id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="marca_marca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="usuario_rol">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="rol_rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="minimarketModelStoreContainer">
+    <EntitySet Name="boleta" EntityType="Self.boleta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detalle_pedido" EntityType="Self.detalle_pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marca" EntityType="Self.marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="modo_pago" EntityType="Self.modo_pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pedido" EntityType="Self.pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="boleta_pedido" Association="Self.boleta_pedido">
+      <End Role="pedido" EntitySet="pedido" />
+      <End Role="boleta" EntitySet="boleta" />
+    </AssociationSet>
+    <AssociationSet Name="detalle_pedido_pedido" Association="Self.detalle_pedido_pedido">
+      <End Role="pedido" EntitySet="pedido" />
+      <End Role="detalle_pedido" EntitySet="detalle_pedido" />
+    </AssociationSet>
+    <AssociationSet Name="detalle_pedido_producto" Association="Self.detalle_pedido_producto">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="detalle_pedido" EntitySet="detalle_pedido" />
+    </AssociationSet>
+    <AssociationSet Name="factura_pedido" Association="Self.factura_pedido">
+      <End Role="pedido" EntitySet="pedido" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="pedido_modo_pago" Association="Self.pedido_modo_pago">
+      <End Role="modo_pago" EntitySet="modo_pago" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="pedido_usuario" Association="Self.pedido_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="producto_categoria" Association="Self.producto_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="producto_marca" Association="Self.producto_marca">
+      <End Role="marca" EntitySet="marca" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="usuario_rol" Association="Self.usuario_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

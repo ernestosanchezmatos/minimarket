@@ -1,0 +1,95 @@
+<div class="register-container">
+  <div class="form-container">
+    <h2>Registrarse</h2>
+    <nz-alert
+      *ngIf=""
+      nzShowIcon
+      nzType="error"
+      [nzMessage]="errorMessage"
+      [ngStyle]="{ 'margin-bottom': '16px' }"
+    ></nz-alert>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="nproduct">Nombre</label>
+        <input
+          nz-input
+          type="text"
+          name="nproduct"
+          placeholder="Ingresa el nombre del producto"
+          [(ngModel)]="nproduct"
+        />
+      </div>
+
+      <div class="input-container">
+        <label>Seleccione una marca:   </label>
+        <select name="miselect" [(ngModel)]="seleccionMarca">
+          <option [ngValue]="objeto" *ngFor="let objeto of ArrMarcasSelect">{{objeto.value}}</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label>Seleccione una categoria:   </label>
+        <select name="miselect2" [(ngModel)]="seleccionCategoria" >
+          <option [ngValue]="objeto" *ngFor="let objeto of ArrCategoriasSelect">{{objeto.value}}</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="stock">Stock</label>
+        <input
+          nz-input
+          type="number"
+          name="stock"
+          placeholder="Ingrese el stock actual"
+          [(ngModel)]="stock"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="price">Precio</label>
+        <input
+          nz-input
+          type="number"
+          name="price"
+          placeholder="Ingrese el precio"
+          [(ngModel)]="price"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="description">Descripción</label>
+        <input
+          nz-input
+          type="text"
+          name="description"
+          placeholder="Ingrese la descripción"
+          [(ngModel)]="description"
+        />
+      </div>
+
+      <div class="input-container">
+        <label for="image">Imagen</label>
+        <input
+          nz-input
+          type="text"
+          name="image"
+          placeholder="Ingrese el link de una imagen"
+          [(ngModel)]="image"
+        />
+      </div>
+
+      <div class="cta-container">
+        <!-- <input type="submit" value="Sign up" /> -->
+        <button
+          nz-button
+          type="submit"
+
+        >
+        <!-- [disabled]="!canSubmit()"
+        [nzLoading]="loading" -->
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

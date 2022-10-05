@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="form-container">
+    <h2>Iniciar Sesión</h2>
+    <nz-alert
+      *ngIf="error"
+      nzShowIcon
+      nzType="error"
+      [nzMessage]="error"
+      [ngStyle]="{ 'margin-bottom': '16px' }"
+    ></nz-alert>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input
+          nz-input
+          type="email"
+          name="email"
+          placeholder="Ingresa su dirección de email"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input
+          nz-input
+          type="password"
+          name="password"
+          placeholder="Ingrese su password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="cta-container">
+        <button
+          nz-button
+          type="submit"
+          [disabled]="!canSubmit()"
+          [nzLoading]="loading"
+        >
+         Ingresar
+        </button>
+        <div><a routerLink="/register">Crear una nueva cuenta</a></div>
+      </div>
+
+      <div class="forgot-password">
+        <a href="">Se te olvidó tu contraseña?</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="minimarketModelStoreContainer" CdmEntityContainer="Context">
+    <EntitySetMapping Name="boleta">
+      <EntityTypeMapping TypeName="minimarketModel.boleta">
+        <MappingFragment StoreEntitySet="boleta">
+          <ScalarProperty Name="bol_id" ColumnName="bol_id" />
+          <ScalarProperty Name="pedido_pe_id" ColumnName="pedido_pe_id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="bol_serie" ColumnName="bol_serie" />
+          <ScalarProperty Name="bol_flagCancelado" ColumnName="bol_flagCancelado" />
+          <ScalarProperty Name="bol_igv" ColumnName="bol_igv" />
+          <ScalarProperty Name="bol_importeTotal" ColumnName="bol_importeTotal" />
+          <ScalarProperty Name="bol_OperacionGrabada" ColumnName="bol_OperacionGrabada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="minimarketModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="categoria_nombre" ColumnName="categoria_nombre" />
+          <ScalarProperty Name="categoria_description" ColumnName="categoria_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalle_pedido">
+      <EntityTypeMapping TypeName="minimarketModel.detalle_pedido">
+        <MappingFragment StoreEntitySet="detalle_pedido">
+          <ScalarProperty Name="pedido_pe_id" ColumnName="pedido_pe_id" />
+          <ScalarProperty Name="producto_producto_id" ColumnName="producto_producto_id" />
+          <ScalarProperty Name="dp_cantidad" ColumnName="dp_cantidad" />
+          <ScalarProperty Name="dp_precioventa" ColumnName="dp_precioventa" />
+          <ScalarProperty Name="dp_descuento" ColumnName="dp_descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="factura">
+      <EntityTypeMapping TypeName="minimarketModel.factura">
+        <MappingFragment StoreEntitySet="factura">
+          <ScalarProperty Name="fac_id" ColumnName="fac_id" />
+          <ScalarProperty Name="pedido_pe_id" ColumnName="pedido_pe_id" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="nums_erie" ColumnName="nums_erie" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="flag_cancelado" ColumnName="flag_cancelado" />
+          <ScalarProperty Name="igv" ColumnName="igv" />
+          <ScalarProperty Name="importe_total" ColumnName="importe_total" />
+          <ScalarProperty Name="operacion_grabada" ColumnName="operacion_grabada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marca">
+      <EntityTypeMapping TypeName="minimarketModel.marca">
+        <MappingFragment StoreEntitySet="marca">
+          <ScalarProperty Name="marca_id" ColumnName="marca_id" />
+          <ScalarProperty Name="marca_nombre" ColumnName="marca_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modo_pago">
+      <EntityTypeMapping TypeName="minimarketModel.modo_pago">
+        <MappingFragment StoreEntitySet="modo_pago">
+          <ScalarProperty Name="modo_id" ColumnName="modo_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nombre_titular" ColumnName="nombre_titular" />
+          <ScalarProperty Name="tarjeta_numero" ColumnName="tarjeta_numero" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="fecha_cad" ColumnName="fecha_cad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido">
+      <EntityTypeMapping TypeName="minimarketModel.pedido">
+        <MappingFragment StoreEntitySet="pedido">
+          <ScalarProperty Name="pe_id" ColumnName="pe_id" />
+          <ScalarProperty Name="pe_Fecha" ColumnName="pe_Fecha" />
+          <ScalarProperty Name="pe_hora" ColumnName="pe_hora" />
+          <ScalarProperty Name="pe_idUsuario" ColumnName="pe_idUsuario" />
+          <ScalarProperty Name="pe_Monto" ColumnName="pe_Monto" />
+          <ScalarProperty Name="pe_idModoPago" ColumnName="pe_idModoPago" />
+          <ScalarProperty Name="pe_Anular" ColumnName="pe_Anular" />
+          <ScalarProperty Name="pe_Estado" ColumnName="pe_Estado" />
+          <ScalarProperty Name="modo_pago_modo_id" ColumnName="modo_pago_modo_id" />
+          <ScalarProperty Name="usuario_u_id" ColumnName="usuario_u_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="minimarketModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+          <ScalarProperty Name="producto_nombre" ColumnName="producto_nombre" />
+          <ScalarProperty Name="producto_stock" ColumnName="producto_stock" />
+          <ScalarProperty Name="producto_precio" ColumnName="producto_precio" />
+          <ScalarProperty Name="producto_description" ColumnName="producto_description" />
+          <ScalarProperty Name="producto_disponible" ColumnName="producto_disponible" />
+          <ScalarProperty Name="marca_marca_id" ColumnName="marca_marca_id" />
+          <ScalarProperty Name="categoria_categoria_id" ColumnName="categoria_categoria_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="minimarketModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="rol_nombre" ColumnName="rol_nombre" />
+          <ScalarProperty Name="rol_description" ColumnName="rol_description" />
+          <ScalarProperty Name="rol_estado" ColumnName="rol_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="minimarketModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="minimarketModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="u_dni" ColumnName="u_dni" />
+          <ScalarProperty Name="u_nombres" ColumnName="u_nombres" />
+          <ScalarProperty Name="u_apellidoPaterno" ColumnName="u_apellidoPaterno" />
+          <ScalarProperty Name="u_apellidoMaterno" ColumnName="u_apellidoMaterno" />
+          <ScalarProperty Name="u_fechaNac" ColumnName="u_fechaNac" />
+          <ScalarProperty Name="u_direccion" ColumnName="u_direccion" />
+          <ScalarProperty Name="u_telefono" ColumnName="u_telefono" />
+          <ScalarProperty Name="u_correo" ColumnName="u_correo" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="u_estado" ColumnName="u_estado" />
+          <ScalarProperty Name="rol_rol_id" ColumnName="rol_rol_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

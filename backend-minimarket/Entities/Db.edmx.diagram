@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2e49e17de624c4a913ce0b29b00764c" Name="Diagram1">
+        <EntityTypeShape EntityType="minimarketModel.boleta" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.categoria" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.detalle_pedido" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.factura" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.marca" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.modo_pago" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.pedido" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.producto" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.rol" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="minimarketModel.usuario" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="minimarketModel.boleta_pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.producto_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.detalle_pedido_pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.detalle_pedido_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.factura_pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.producto_marca" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.pedido_modo_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.pedido_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="minimarketModel.usuario_rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
