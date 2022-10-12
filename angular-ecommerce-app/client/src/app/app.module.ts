@@ -16,7 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { AuthModule } from './auth/auth.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { authInterceptorProviders } from './services/interceptor.service';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -73,6 +73,7 @@ registerLocaleData(en);
     NzNotificationModule,
     NzProgressModule,
     NzTableModule,
+    ReactiveFormsModule
   ],
   providers: [
     authInterceptorProviders,

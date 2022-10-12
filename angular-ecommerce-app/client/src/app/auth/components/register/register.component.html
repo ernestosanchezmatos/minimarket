@@ -8,145 +8,92 @@
       [nzMessage]="errorMessage"
       [ngStyle]="{ 'margin-bottom': '16px' }"
     ></nz-alert>
-    <form (ngSubmit)="onSubmit()">
-      <div class="input-container">
-        <label for="email">Email</label>
-        <input
-          nz-input
-          type="email"
-          name="email"
-          placeholder="Ingresa su dirección de email"
-          [(ngModel)]="email"
-        />
-      </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group input-container">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+    </div>
       <div class="🤪">
-        <div class="input-container">
-          <label for="password">Password</label>
-          <input
-            nz-input
-            type="password"
-            name="password"
-            [(ngModel)]="password"
-            placeholder="Ingrese una contraseña segura"
-          />
+        <div class="form-group input-container">
+          <label>Contraseña</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">La contraseña debe tener minimo 6 caracteres</div>
+          </div>
         </div>
-		
-        <div class="input-container">
-          <label for="confirmPassword">Confirmar Password</label>
-          <input
-            nz-input
-            type="password"
-            name="confirmPassword"
-            [(ngModel)]="confirmPassword"
-            placeholder="Repetir su contraseña "
-          />
+        <div class="form-group input-container">
+          <label>Confirmar contraseña</label>
+          <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': f.password.value==f.confirmPassword.value && submitted && f.password.errors }" />
+          <span *ngIf="f.password.value!=f.confirmPassword.value" style="color:red">Las contraseñas no coinciden</span>
         </div>
       </div>
-      <div class="input-container">
-        <label for="dni">Dni</label>
-        <input
-          nz-input
-          type="text"
-          name="dni"
-          placeholder="Ingrese su DNI"
-          [(ngModel)]="dni"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="nombres">Nombres</label>
-        <input
-          nz-input
-          type="text"
-          name="nombres"
-          placeholder="Ingresa sus nombres"
-          [(ngModel)]="nombres"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="aPaterno">Apellido Paterno</label>
-        <input
-          nz-input
-          type="text"
-          name="aPaterno"
-          placeholder="Ingrese su apellido paterno"
-          [(ngModel)]="aPaterno"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="aMaterno">Apellido Materno</label>
-        <input
-          nz-input
-          type="text"
-          name="aMaterno"
-          placeholder="Ingrese su apellido materno"
-          [(ngModel)]="aMaterno"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="fechaNac">Fecha de Nacimiento</label>
-        <input
-          nz-input
-          type="date"
-          name="fechaNac"
-          placeholder="Ingrese su Fecha de nacimiento"
-          [(ngModel)]="fechaNac"
-        />
-      </div>
-      
-      <div class="input-container">
-        <label for="direccion">Dirección </label>
-        <input
-          nz-input
-          type="text"
-          name="direccion"
-          placeholder="Ingrese su dirección"
-          [(ngModel)]="direccion"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="telefono">Teléfono</label>
-        <input
-          nz-input
-          type="text"
-          name="telefono"
-          placeholder="Ingresa su número telefónico "
-          [(ngModel)]="telefono"
-        />
-      </div>
-
-      <div class="input-container">
-        <label for="user">User</label>
-        <input
-          nz-input
-          type="text"
-          name="user"
-          placeholder="Ingrese su username "
-          [(ngModel)]="user"
-        />
-      </div>
-	  
-      <div class="✅">
-        <div class="checkbox-container">
-          <input nz-input type="checkbox" />
-          <span>Acepto recibir correos electrónicos instructivos y promocionales</span>
+      <div class="form-group input-container">
+        <label>DNI</label>
+        <input type="number" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }" />
+        <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
+            <div *ngIf="f.dni.errors.required">El DNI es requerido</div>
         </div>
-
-        <div class="checkbox-container">
-          <input nz-input type="checkbox"/>
-          <span> Acepto los Términos de uso y la Política de privacidad de Minimarket "San Benito"</span>
-        </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Nombres</label>
+      <input type="text" formControlName="nombres" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombres.errors }" />
+      <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+          <div *ngIf="f.nombres.errors.required">El nombre es requerido</div>
       </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Apellido paterno</label>
+      <input type="text" formControlName="aPaterno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aPaterno.errors }" />
+      <div *ngIf="submitted && f.aPaterno.errors" class="invalid-feedback">
+          <div *ngIf="f.aPaterno.errors.required">El apellido paterno es requerido</div>
+      </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Apellido materno</label>
+      <input type="text" formControlName="aMaterno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aMaterno.errors }" />
+      <div *ngIf="submitted && f.aMaterno.errors" class="invalid-feedback">
+          <div *ngIf="f.aMaterno.errors.required">El apellido materno es requerido</div>
+      </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Fecha de nacimiento</label>
+      <input type="date" formControlName="fechaNac" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fechaNac.errors }" />
+      <div *ngIf="submitted && f.fechaNac.errors" class="invalid-feedback">
+          <div *ngIf="f.fechaNac.errors.required">La fecha de nacimiento es requerida</div>
+      </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Direccion</label>
+      <input type="text" formControlName="direccion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }" />
+      <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+          <div *ngIf="f.direccion.errors.required">La dirección es requerida</div>
+      </div>
+    </div>
+    <div class="form-group input-container">
+      <label>Telefono</label>
+      <input type="number" formControlName="telefono" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
+      <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+          <div *ngIf="f.telefono.errors.required">El telefono es requerido</div>
+      </div>
+  </div>
+  <div class="form-group input-container">
+    <label>User</label>
+    <input type="text" formControlName="user" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.user.errors }" />
+    <div *ngIf="submitted && f.user.errors" class="invalid-feedback">
+        <div *ngIf="f.user.errors.required">El nombre de usuario es requerido</div>
+    </div>
+  </div>
+
       <div class="cta-container">
-        <!-- <input type="submit" value="Sign up" /> -->
+
         <button
           nz-button
           type="submit"
-          [disabled]="!canSubmit()"
           [nzLoading]="loading"
         >
           Registrarse
